@@ -5,4 +5,61 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
 
+        <string name="display">显示</string>
+    <string name="hint">隐藏</string>
+    
+    <string-array name="left_menu">
+        <item>ArrayAdapter</item>
+        <item>SimpleAdapter</item>
+        <item>BaseAdapter</item>
+        <item>BaseExpandableListAdapter</item>
+        <item>StackView</item>
+        <item>ProgressBar</item>
+        <item>SeekBar</item>
+        <item>ViewSwitcher</item>
+    </string-array>
+    
+    <string-array name="left_main_menu">
+        <item>AdapterView</item>
+        <item>ProgressBar</item>
+        <item>ViewAnimator</item>
+    </string-array>
+    
+    <string-array name="adapter_view">
+        <item>ArrayAdapter</item>
+        <item>SimpleAdapter</item>
+        <item>BaseAdapter</item>
+        <item>BaseExpandableListAdapter</item>
+        <item>StackView</item>
+    </string-array>
+    
+    <string-array name="progress_bar">
+        <item>ProgressBar</item>
+        <item>SeekBar</item>
+    </string-array>
+    
+    <string-array name="view_animator">
+        <item>ViewSwitcher</item>
+    </string-array>
+    
+    
+
+    <string-array name="zhenxing">
+        <item>天輝</item>
+        <item>夜魇</item>
+    </string-array>
+    
+    <string-array name="tianhui">
+        <item>coco</item>
+        <item>SK</item>
+        <item>bingnv</item>
+        <item>huonv</item>
+        <item>AM</item>
+    </string-array>
+    
+    <string-array name="yeyan">
+        <item>dog</item>
+        <item>xukong</item>
+        <item>chaoxi</item>
+    </string-array>
 </resources>
