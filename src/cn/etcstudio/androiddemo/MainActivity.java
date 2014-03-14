@@ -1,7 +1,10 @@
 package cn.etcstudio.androiddemo;
 
+import cn.etcstudio.androiddemo.adapterview.ArrayAdapterFragment;
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.Color;
@@ -20,8 +23,8 @@ import android.widget.TextView;
 public class MainActivity extends Activity {
 
 	private DrawerLayout mDrawerLayout;
-	private ExpandableListView mExpandableListView;
-	private ActionBarDrawerToggle drawerToggle;
+	private ExpandableListView mLeftDrawer;
+	private ActionBarDrawerToggle mDrawerToggle;
 	
 	String[] uiGroup;
 	String[][] uiChild;
@@ -41,7 +44,7 @@ public class MainActivity extends Activity {
 		};
 
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-		drawerToggle = new ActionBarDrawerToggle(
+		mDrawerToggle = new ActionBarDrawerToggle(
 				this,
 				mDrawerLayout,
 				R.drawable.ic_drawer,
@@ -51,20 +54,20 @@ public class MainActivity extends Activity {
 
 			public void onDrawerClosed(View view) {
                 super.onDrawerClosed(view);
-                getActionBar().setTitle(R.string.drawer_open);
+                getActionBar().setTitle(mTitle);
             }
 
             /** Called when a drawer has settled in a completely open state. */
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
-                getActionBar().setTitle(R.string.drawer_close);
+                getActionBar().setTitle(R.string.drawer_open);
             }	
 		};
-		mDrawerLayout.setDrawerListener(drawerToggle);
+		mDrawerLayout.setDrawerListener(mDrawerToggle);
 
-		mExpandableListView = (ExpandableListView) findViewById(R.id.left_drawer);
-		mExpandableListView.setAdapter(new ExpandableListViewAdapter(this));
-		mExpandableListView.setOnChildClickListener(new ExpandableListItemClickListener());
+		mLeftDrawer = (ExpandableListView) findViewById(R.id.left_drawer);
+		mLeftDrawer.setAdapter(new ExpandableListViewAdapter(this));
+		mLeftDrawer.setOnChildClickListener(new ExpandableListItemClickListener());
 
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 		getActionBar().setHomeButtonEnabled(true);
@@ -74,20 +77,20 @@ public class MainActivity extends Activity {
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         // Sync the toggle state after onRestoreInstanceState has occurred.
-        drawerToggle.syncState();
+        mDrawerToggle.syncState();
     }
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        drawerToggle.onConfigurationChanged(newConfig);
+        mDrawerToggle.onConfigurationChanged(newConfig);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Pass the event to ActionBarDrawerToggle, if it returns
         // true, then it has handled the app icon touch event
-        if (drawerToggle.onOptionsItemSelected(item)) {
+        if (mDrawerToggle.onOptionsItemSelected(item)) {
           return true;
         }
         // Handle your other action bar items...
@@ -190,6 +193,19 @@ public class MainActivity extends Activity {
 	}
 	
 	private void selectItem(int groupPosition, int childPosition) {
+		Fragment fragment = new ArrayAdapterFragment();
+		if (groupPosition == 0) {
+			
+			if (childPosition ==0) {
+				fragment = new ArrayAdapterFragment();
+			}
+
+		}
+
+		FragmentManager fragmentManager = getFragmentManager();
+		fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+
+		mDrawerLayout.closeDrawer(mLeftDrawer);
 	}
 
 }
