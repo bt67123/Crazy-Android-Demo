@@ -1,6 +1,7 @@
 package cn.etcstudio.androiddemo;
 
 import cn.etcstudio.androiddemo.adapterview.ArrayAdapterFragment;
+import cn.etcstudio.androiddemo.adapterview.BaseAdapterFragment;
 import cn.etcstudio.androiddemo.adapterview.SimpleAdapterFragment;
 import android.os.Bundle;
 import android.app.Activity;
@@ -201,6 +202,8 @@ public class MainActivity extends Activity {
 				fragment = new ArrayAdapterFragment();
 			} else if (childPosition == 1) {
 				fragment = new SimpleAdapterFragment();
+			} else if (childPosition == 2) {
+				fragment = new BaseAdapterFragment();
 			}
 
 		}
