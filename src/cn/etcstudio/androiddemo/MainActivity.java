@@ -4,6 +4,7 @@ import cn.etcstudio.androiddemo.adapterview.ArrayAdapterFragment;
 import cn.etcstudio.androiddemo.adapterview.BaseAdapterFragment;
 import cn.etcstudio.androiddemo.adapterview.SimpleAdapterFragment;
 import cn.etcstudio.androiddemo.adapterview.StackViewFragment;
+import cn.etcstudio.androiddemo.progressbar.ProgressBarFragment;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.Fragment;
@@ -18,6 +19,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.OnChildClickListener;
@@ -37,6 +39,11 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
+		//ProgressBar demo
+        requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+		requestWindowFeature(Window.FEATURE_PROGRESS);
+
 		setContentView(R.layout.activity_main);
 
 		uiGroup = this.getResources().getStringArray(R.array.left_main_menu);
@@ -211,6 +218,12 @@ public class MainActivity extends Activity {
 				fragment = new StackViewFragment();
 			}
 
+		} else if (groupPosition == 1) {
+			
+			if (childPosition == 0) {
+				fragment = new ProgressBarFragment();
+			}
+			
 		}
 
 		FragmentManager fragmentManager = getFragmentManager();
