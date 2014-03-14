@@ -3,6 +3,7 @@ package cn.etcstudio.androiddemo;
 import cn.etcstudio.androiddemo.adapterview.ArrayAdapterFragment;
 import cn.etcstudio.androiddemo.adapterview.BaseAdapterFragment;
 import cn.etcstudio.androiddemo.adapterview.SimpleAdapterFragment;
+import cn.etcstudio.androiddemo.adapterview.StackViewFragment;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.Fragment;
@@ -204,6 +205,10 @@ public class MainActivity extends Activity {
 				fragment = new SimpleAdapterFragment();
 			} else if (childPosition == 2) {
 				fragment = new BaseAdapterFragment();
+			} else if (childPosition == 3) {
+				
+			} else if (childPosition == 4) {
+				fragment = new StackViewFragment();
 			}
 
 		}
