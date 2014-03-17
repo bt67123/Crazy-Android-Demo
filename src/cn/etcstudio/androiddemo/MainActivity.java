@@ -6,6 +6,7 @@ import cn.etcstudio.androiddemo.adapterview.SimpleAdapterFragment;
 import cn.etcstudio.androiddemo.adapterview.StackViewFragment;
 import cn.etcstudio.androiddemo.progressbar.ProgressBarFragment;
 import cn.etcstudio.androiddemo.progressbar.SeekBarFragment;
+import cn.etcstudio.androiddemo.viewanimator.ViewSwitcherFragment;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.Fragment;
@@ -227,6 +228,12 @@ public class MainActivity extends Activity {
 				fragment = new SeekBarFragment();
 			}
 			
+		} else if (groupPosition == 2) {
+			
+			if (childPosition == 0) {
+				fragment = new ViewSwitcherFragment();
+			}
+
 		}
 
 		FragmentManager fragmentManager = getFragmentManager();

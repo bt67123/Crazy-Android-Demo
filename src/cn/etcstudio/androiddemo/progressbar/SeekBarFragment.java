@@ -1,7 +1,6 @@
 package cn.etcstudio.androiddemo.progressbar;
 
 import cn.etcstudio.androiddemo.R;
-import android.R.integer;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
